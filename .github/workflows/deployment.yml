@@ -23,4 +23,4 @@ jobs:
         run: echo "i'm at ${GITHUB_REF##*/}"
       - name: Run with secrets
         shell: bash
-        run: echo "${{ secrets.TEST_KEY }} ${env.key}"
+        run: echo "${{ secrets.TEST_KEY }} ${{env.key}}"
