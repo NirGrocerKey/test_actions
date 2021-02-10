@@ -9,12 +9,12 @@ on:
 jobs:
   build:
     runs-on: ubuntu-latest
-    
-    environment: 
-      name: ${GITHUB_REF##*/}
       
     env:
       key: ${GITHUB_REF##*/}
+
+    environment: 
+      name: ${env.key}
       
     steps:
       - uses: actions/checkout@v2
