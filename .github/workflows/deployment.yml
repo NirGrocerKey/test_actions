@@ -14,13 +14,13 @@ jobs:
       key: ${GITHUB_REF##*/}
       key2: ${{ github.event.deployment.environment }}
 
-    environment: 
+#     environment: 
 #       if: github.ref == 'refs/heads/main'
 #       name: main
 #       elif: github.ref == 'refs/heads/staging'
 #       name: staging
 #       elif: github.ref == 'refs/heads/production'
-      name: ${{ github.event.deployment.environment }}
+#       name: ${{ github.event.deployment.environment }}
     
 
     steps:
