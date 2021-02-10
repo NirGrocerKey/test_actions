@@ -14,7 +14,7 @@ jobs:
       name: ${GITHUB_REF##*/}
     
     env:
-      key: ${GITHUB_REF##*/}
+      key: "secret.${GITHUB_REF##*/}_TEST_KEY"
       
     steps:
       - uses: actions/checkout@v2
@@ -26,4 +26,4 @@ jobs:
         run: echo "${{ secrets.TEST_KEY }} ${{ env.key }}"
       - name: Run with secrets v2
         shell: bash
-        run: echo "${{ secrets.${{GITHUB_REF##*/}}_TEST_KEY }}"
+        run: echo "${{ env.key }}"
