@@ -9,18 +9,25 @@ on:
 jobs:
   build:
     runs-on: ubuntu-latest
-    
-    environment: 
-      name: ${GITHUB_REF##*/}
-    
+      
     env:
       key: ${GITHUB_REF##*/}
-      
+      key2: ${{github.ref}}
+
+    environment: 
+#       if: github.ref == 'refs/heads/main'
+      name: ${{github.ref}}
+#       elif: github.ref == 'refs/heads/staging'
+#       name: staging
+#       elif: github.ref == 'refs/heads/production'
+#       name: ${{ github.event.deployment.environment }}
+    
+
     steps:
       - uses: actions/checkout@v2
-      - name: Run a one-line script
-        shell: bash
-        run: echo "i'm at ${GITHUB_REF##*/}"
       - name: Run with secrets
         shell: bash
-        run: echo "${{ secrets.TEST_KEY }} ${{ env.key }}"
+        run: echo "${{ secrets.TEST_KEY }} ${{ env.key2 }}"
+      - name: Run with secrets v2
+        shell: bash
+        run: echo ${{ secrets.PROD_KEY }}
