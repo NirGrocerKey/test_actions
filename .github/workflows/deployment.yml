@@ -14,7 +14,7 @@ jobs:
       key: ${GITHUB_REF##*/}
 
     environment: 
-      name: production
+      name: ${{GITHUB_REF##*/}}
       
     steps:
       - uses: actions/checkout@v2
