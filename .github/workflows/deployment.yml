@@ -27,6 +27,6 @@ jobs:
         run: echo "${{ secrets.TEST_KEY }} ${{ env.key }}"
       - name: Run with secrets v2
         shell: bash
-        run: echo ${{ secrets.TEST_KEY }}
+        run: echo ${{ secrets.PROD_KEY }}
         env:
           key: ${GITHUB_REF##*/}
