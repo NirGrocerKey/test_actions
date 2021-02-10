@@ -12,11 +12,11 @@ jobs:
       
     env:
       key: ${GITHUB_REF##*/}
-      key2: ${{github.ref##*/}}
+      key2: ${{github.head_ref}}
 
     environment: 
 #       if: github.ref == 'refs/heads/main'
-      name: ${{github.ref##*/}}
+      name: ${{github.head_ref}}
 #       elif: github.ref == 'refs/heads/staging'
 #       name: staging
 #       elif: github.ref == 'refs/heads/production'
