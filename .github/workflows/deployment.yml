@@ -13,7 +13,7 @@ jobs:
     env:
       key: ${GITHUB_REF##*/}
 
-    environment:  ${GITHUB_REF##*/}
+    environment:  "${GITHUB_REF##*/}"
 
     steps:
       - uses: actions/checkout@v2
