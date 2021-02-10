@@ -24,6 +24,18 @@ jobs:
     
 
     steps:
+      - name: Set env to main
+        if: endsWith(github.ref, '/main')
+        run: |
+          echo "ENVIRONMENT=main" >> $GITHUB_ENV
+      - name: Set env to staging
+        if: endsWith(github.ref, '/staging')
+        run: |
+          echo "ENVIRONMENT=staging" >> $GITHUB_ENV
+      - name: Set env to production
+        if: endsWith(github.ref, '/production')
+        run: |
+          echo "ENVIRONMENT=production" >> $GITHUB_ENV
       - uses: actions/checkout@v2
       - name: Run a one-line script
         shell: bash
