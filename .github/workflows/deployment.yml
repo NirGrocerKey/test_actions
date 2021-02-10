@@ -12,10 +12,16 @@ jobs:
       
     env:
       key: ${GITHUB_REF##*/}
+      key2: ${{ github.event.deployment.environment }} 
 
+    environment: 
+#       if: github.ref == 'refs/heads/main'
+      name: main
+#     if: github.ref == 'refs/heads/staging'
+#     name: staging
+#         if: github.ref == 'refs/heads/production'
+#          name: production
     
-    if: github.ref == 'refs/heads/main'
-    environment: staging
 
     steps:
       - uses: actions/checkout@v2
@@ -24,7 +30,7 @@ jobs:
         run: echo "i'm at ${GITHUB_REF##*/}"
       - name: Run with secrets
         shell: bash
-        run: echo "${{ secrets.TEST_KEY }} ${{ env.key }}"
+        run: echo "${{ secrets.TEST_KEY }} ${{ env.key2 }}"
       - name: Run with secrets v2
         shell: bash
         run: echo ${{ secrets.PROD_KEY }}
