@@ -12,7 +12,7 @@ jobs:
       
     env:
       key: ${GITHUB_REF##*/}
-      key2: github.event.deployment.environment
+      key2: ${github.event.deployment.environment}
 
 #     environment: 
 #       if: github.ref == 'refs/heads/main'
