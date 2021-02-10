@@ -10,11 +10,11 @@ jobs:
   build:
     runs-on: ubuntu-latest
     
+    environment: 
+      name: ${{ GITHUB_REF##*/ }}
+    
     env:
       key: ${GITHUB_REF##*/}
-    
-    environment: 
-      name: ${{ key }}
       
     steps:
       - uses: actions/checkout@v2
