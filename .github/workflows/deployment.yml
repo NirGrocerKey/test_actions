@@ -12,7 +12,7 @@ jobs:
       
     env:
       key: ${GITHUB_REF##*/}
-      key2: ${{ github.event.deployment.environment }} 
+      key2: ${{ github.event.deployment }} 
 
     environment: 
 #       if: github.ref == 'refs/heads/main'
@@ -20,7 +20,7 @@ jobs:
 #       elif: github.ref == 'refs/heads/staging'
 #       name: staging
 #       elif: github.ref == 'refs/heads/production'
-      name: "${env.key}"
+      name: ${{ env.key }}
     
 
     steps:
