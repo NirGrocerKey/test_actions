@@ -34,5 +34,3 @@ jobs:
       - name: Run with secrets v2
         shell: bash
         run: echo ${{ secrets.PROD_KEY }}
-        env:
-          key: ${GITHUB_REF##*/}
