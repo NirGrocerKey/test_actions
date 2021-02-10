@@ -13,9 +13,8 @@ jobs:
     env:
       key: ${GITHUB_REF##*/}
 
-    environment: 
-      name: ${GITHUB_REF##*/}
-      
+    environment:  ${GITHUB_REF##*/}
+
     steps:
       - uses: actions/checkout@v2
       - name: Run a one-line script
