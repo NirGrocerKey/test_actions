@@ -28,10 +28,10 @@ jobs:
       - name: Run with secrets
         shell: bash
         run: echo "${{ secrets.TEST_KEY }} ${{ env.key2 }}"
-          environment:
+        environment:
           name: ${env.key}
       - name: Run with secrets v2
         shell: bash
         run: echo ${{ secrets.PROD_KEY }}
-          environment:
+        environment:
           name: ${env.key}
