@@ -12,11 +12,12 @@ jobs:
       
     env:
       key: ${GITHUB_REF##*/}
-      key2: ${{github.ref}}
+      key2: ${REF#refs/heads/}
 
-#     environment: 
+    environment: 
 #       if: github.ref == 'refs/heads/main'
-#       name: ${{github.ref}}
+      name: ${REF#refs/heads/}
+#       name: ${{github.ref}}${REF#refs/heads/}
 #       elif: github.ref == 'refs/heads/staging'
 #       name: staging
 #       elif: github.ref == 'refs/heads/production'
@@ -28,10 +29,6 @@ jobs:
       - name: Run with secrets
         shell: bash
         run: echo "${{ secrets.TEST_KEY }} ${{ env.key2 }}"
-        environment:
-          name: ${env.key}
       - name: Run with secrets v2
         shell: bash
         run: echo ${{ secrets.PROD_KEY }}
-        environment:
-          name: ${env.key}
