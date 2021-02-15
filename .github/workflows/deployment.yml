@@ -25,7 +25,7 @@ jobs:
                 "refs/heads/main":"development",
                 "refs/heads/staging":"staging",
                 "refs/heads/production":"production"
-              }')[github.ref}}
+              }')[github.ref]}}
 #       elif: github.ref == 'refs/heads/staging'
 #       name: staging
 #       elif: github.ref == 'refs/heads/production'
