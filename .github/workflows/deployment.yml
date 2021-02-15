@@ -12,12 +12,20 @@ jobs:
       
     env:
       key: ${GITHUB_REF##*/}
-      key2: ${REF#refs/heads/}
+      key2: ${{ fromJSON('{
+                "refs/heads/main":"development",
+                "refs/heads/staging":"staging",
+                "refs/heads/production":"production"
+              }')[github.ref}}
 
     environment: 
 #       if: github.ref == 'refs/heads/main'
 #       name: ${REF#refs/heads/}
-      name: ${{github.ref}}
+      name: ${{ fromJSON('{
+                "refs/heads/main":"development",
+                "refs/heads/staging":"staging",
+                "refs/heads/production":"production"
+              }')[github.ref}}
 #       elif: github.ref == 'refs/heads/staging'
 #       name: staging
 #       elif: github.ref == 'refs/heads/production'
