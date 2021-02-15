@@ -16,7 +16,7 @@ jobs:
                 "refs/heads/main":"development",
                 "refs/heads/staging":"staging",
                 "refs/heads/production":"production"
-              }')[github.ref}}
+              }')[github.ref]}}
 
     environment: 
 #       if: github.ref == 'refs/heads/main'
